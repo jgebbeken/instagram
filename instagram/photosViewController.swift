@@ -9,7 +9,7 @@
 import UIKit
 import AFNetworking
 
-class photoViewController: UIViewController {
+class photoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +20,8 @@ class photoViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 320;
+        tableView.dataSource = self
+        tableView.delegate = self
         
         
         let clientId = "e05c462ebd86446ea48a5af73769b602"
@@ -54,17 +56,22 @@ class photoViewController: UIViewController {
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let data = data {
+            return data.count
+        }
+        else
+        {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cardView", forIndexPath: indexPath) as! PhotoCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
+        let element = data![indexPath.row]
         
-        
-        let post = data![indexPath.section]
-        let photo = post["images"]!["low_resolution"]!!["url"] as! String
-        let imgurl = NSURL(string: photo)!
-      //  cell.photoView.setImageWithURL(imgurl)
+        let path = element.valueForKeyPath("images.low_resolution.url") as! String
+        let imageUrl = NSURL(string: path)
+       // cell.photoView.setImageWithURL(imageUrl)
         
         return cell
     }
