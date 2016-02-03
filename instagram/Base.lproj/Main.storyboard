@@ -18,19 +18,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="153" id="1km-nf-Pcp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="153" id="1km-nf-Pcp" customClass="PhotoCell" customModule="instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="153"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1km-nf-Pcp" id="FOr-jb-lti">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sgQ-se-FO1">
-                                                    <rect key="frame" x="16" y="-10" width="103" height="128"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="icR-pe-pXw">
+                                                    <rect key="frame" x="19" y="12" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoView" destination="FOr-jb-lti" id="kDf-Ev-jUG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -38,7 +41,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="photoView" destination="sgQ-se-FO1" id="c1B-HN-Qar"/>
                         <outlet property="tableView" destination="YkQ-hX-50w" id="nlX-3P-EVd"/>
                     </connections>
                 </viewController>

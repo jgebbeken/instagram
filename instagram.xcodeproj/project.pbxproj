@@ -27,7 +27,7 @@
 		EE09588C1C59A38200330946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE09588F1C59A38200330946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE0958911C59A38200330946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE0958971C59B78800330946 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		EE0958971C59B78800330946 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCell.swift; path = ../PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,6 @@
 		EE0958791C59A38200330946 = {
 			isa = PBXGroup;
 			children = (
-				EE0958971C59B78800330946 /* PhotoCell.swift */,
 				EE0958841C59A38200330946 /* instagram */,
 				EE0958831C59A38200330946 /* Products */,
 				75F2E5DAC5F702C59DA2C78B /* Pods */,
@@ -81,6 +80,7 @@
 		EE0958841C59A38200330946 /* instagram */ = {
 			isa = PBXGroup;
 			children = (
+				EE0958971C59B78800330946 /* PhotoCell.swift */,
 				EE0958851C59A38200330946 /* AppDelegate.swift */,
 				EE0958871C59A38200330946 /* photosViewController.swift */,
 				EE0958891C59A38200330946 /* Main.storyboard */,

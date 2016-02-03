@@ -12,14 +12,16 @@ import AFNetworking
 class photoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var photoView: UIImageView!
     
-    var photos: [NSDictionary]?
+    var data: [NSDictionary]?
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = 320;
+        
+        
         let clientId = "e05c462ebd86446ea48a5af73769b602"
         let url = NSURL(string:"https://api.instagram.com/v1/media/popular?client_id=\"(e05c462ebd86446ea48a5af73769b602)")
         let request = NSURLRequest(URL: url!)
@@ -39,6 +41,8 @@ class photoViewController: UIViewController {
                 }
         });
         task.resume()
+        
+        tableView.reloadData()
 
     }
 
@@ -46,7 +50,32 @@ class photoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cardView", forIndexPath: indexPath) as! PhotoCell
+        
+        
+        let post = data![indexPath.section]
+        let photo = post["images"]!["low_resolution"]!!["url"] as! String
+        let imgurl = NSURL(string: photo)!
+      //  cell.photoView.setImageWithURL(imgurl)
+        
+        return cell
+    }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        if let data = data {
+            return data.count
+        }else {
+            return 0
+        }
+    }
 
 }
 
