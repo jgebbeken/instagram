@@ -9,7 +9,7 @@
 import UIKit
 import AFNetworking
 
-class photoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class photoViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +20,7 @@ class photoViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         tableView.rowHeight = 320;
-        tableView.dataSource = self
+       //tableView.dataSource = self
         tableView.delegate = self
         
         
@@ -63,7 +63,7 @@ class photoViewController: UIViewController, UITableViewDataSource, UITableViewD
         {
             return 0
         }
-    }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
@@ -71,7 +71,7 @@ class photoViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let path = element.valueForKeyPath("images.low_resolution.url") as! String
         let imageUrl = NSURL(string: path)
-       // cell.photoView.setImageWithURL(imageUrl)
+        cell.photoView.setImageWithURL(imageUrl!)
         
         return cell
     }
@@ -86,3 +86,4 @@ class photoViewController: UIViewController, UITableViewDataSource, UITableViewD
 
 }
 
+}
